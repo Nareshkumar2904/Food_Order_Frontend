@@ -1,0 +1,54 @@
+<app-title title="Cart Page" margin="1.5rem 0 0 1.5rem"></app-title>
+
+<app-page-not-found [visible]="!cart || !cart.items.length" notFoundMessage=" Cart Page Is Empty !!"
+  resetLinkText="Go To Homepage" class="text-center fw-semibold" style="background-color: aqua;"></app-page-not-found>
+
+<div class="container" *ngIf="cart && cart.items.length">
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body" style="overflow-y: scroll;">
+          <div class="row m-2" *ngFor="let cartItem of cart.items">
+            <div class="col-sm-2">
+              <div>
+                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" class="rounded-5" style="width: 150px;">
+              </div>
+            </div>
+            <div class="col-sm-10 d-flex justify-content-lg-around align-items-start mt-5">
+              <div>
+                <a routerLink="/food/{{cartItem.food.id}}" class="fs-5 fw-semibold">{{cartItem.food.name}}</a>
+              </div>
+              <div class="form-group">
+                <input type="number" min="1" max="20" #quantitySelect [value]="cartItem.quantity"
+                  (change)="changeQuantity(cartItem, quantitySelect.value)">
+              </div>
+              <div>
+                {{cartItem.price | currency}}
+              </div>
+              <div>
+                <button class="btn btn-warning rounded-5" (click)="removeFromCart(cartItem)">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-start">
+            <div class="foods-count"><strong style="color:blue">Count : </strong> {{cart.totalCount}}</div>
+            <div class="total-price"><strong style="color:blue">Price : </strong> {{cart.totalPrice|currency}}
+            </div>
+          </div>
+          <button routerLink="/checkout" class="btn btn-success rounded-5 w-100 m-1 text-center"
+            style="font-size: 15px;">Proceed to
+            Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

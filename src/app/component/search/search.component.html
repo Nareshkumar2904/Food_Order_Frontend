@@ -1,0 +1,7 @@
+<nav class="navbar m-4 d-flex justify-content-center align-items-center" style="margin-top:-50px !important;">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2 rounded-5" #s type="search" placeholder="Search Food Menu !!!" aria-label="Search"
+      [value]="searchTerm" (keyup.enter)="search(s.value)">
+    <button class="btn btn-primary rounded-5" type="submit" (click)="search(s.value)">Search</button>
+  </form>
+</nav>

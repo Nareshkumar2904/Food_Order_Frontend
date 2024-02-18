@@ -1,0 +1,8 @@
+<div class="card rounded-5 bg-light mt-4" *ngIf="visible" style="max-width: 75vw;margin:auto">
+  <div class="card-body">
+    <div>{{notFoundMessage}}
+      <a [routerLink]="resetLinkRoute" class="rounded-5 btn btn-primary text-decoration-none ms-3"
+        style="font-size: 13px;">{{resetLinkText}}</a>
+    </div>
+  </div>
+</div>

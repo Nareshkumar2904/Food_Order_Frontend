@@ -1,0 +1,27 @@
+<div class="container bg-body-secondary" style="max-width: 100vw;">
+  <nav id="navbar-example" class="navbar">
+    <a class="navbar-brand fw-semibold text-black" href="#">FOOD MENU !!</a>
+    <ul class="nav nav-pills fw-semibold">
+      <li class="nav-item">
+        <a class="nav-link text-black" routerLink="/login">LogIn</a>
+      </li>
+      <li class="nav-item dropdown" data-bs-target="#navbar-example">
+        <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" routerLink="/dashboard"
+          aria-expanded="false">name</a>
+        <ul class="dropdown-menu text-center fw-semibold">
+          <li><a class="dropdown-item p-1 rounded" routerLink="profile">Profile</a></li>
+          <li><a class="dropdown-item p-1 rounded" routerLink="/orders">Orders</a></li>
+          <li><a class="dropdown-item p-1 rounded">Logout</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link position-relative text-black" routerLink="/cart-page">Cart
+          <span class="position-absolute top-0 mt-1 start-100 translate-middle badge rounded-pill bg-danger"
+            *ngIf="cartQuantity">{{cartQuantity}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

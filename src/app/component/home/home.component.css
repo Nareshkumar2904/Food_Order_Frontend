@@ -1,0 +1,16 @@
+.favorite {
+  position: absolute;
+  top: 14rem;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+.favorite.not {
+  color: grey;
+}
+
+.cook-time {
+  position: absolute;
+  top: 16rem;
+  right: 1rem;
+}

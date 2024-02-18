@@ -1,0 +1,25 @@
+.favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+.favorite.not {
+  color: grey;
+}
+
+.cook-time {
+  position: absolute;
+  top: 10rem;
+  right: 1rem;
+}
+
+div a {
+  background-color: #f0f0f0;
+  padding: 0.1rem 1rem;
+  margin: 0.2rem 0.15rem;
+  border-radius: 10rem;
+  font-weight: 600;
+  color: blue;
+}
