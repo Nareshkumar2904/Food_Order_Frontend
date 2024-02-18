@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card" style="height: 65% !important;">
+        <div class="card-body" style="overflow-y: scroll;">
+          <table class="table table-borderless">
+            <tbody>
+              <tr *ngFor="let item of order.items">
+                <td class="align-middle">
+                  <img [src]="item.food.imageUrl" class="rounded-5" style="width: 120px;"
+                    routerLink="/food/{{item.food.id}}">
+                </td>
+                <td class="align-middle">
+                  {{item.food.name}}
+                </td>
+                <td class="align-middle">
+                  {{item.food.price | currency}}
+                </td>
+                <td class="align-middle">
+                  {{item.quantity}}
+                </td>
+                <td class="align-middle">
+                  {{item.price | currency}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="text-end mt-3 me-md-5"><strong>Total:</strong>&nbsp;&nbsp;
+        <span><strong>{{order.totalPrice | currency}}</strong></span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <app-title title="Order Form" margin="0 0 0 1.5rem"></app-title>
+      <div class="card m-2">
+        <div class="card-body bg-opacity-50 bg-dark">
+          <form [formGroup]="checkoutForm">
+            <div class="input-container">
+              <input type="text" class="form-control mt-2" placeholder="Enter Your Name" formControlName="name">
+            </div>
+            <input-validation [control]="fc.name"></input-validation>
+            <div class="input-container">
+              <input type="text" class="form-control mt-2" placeholder="Enter Your Address" formControlName="address">
+            </div>
+            <input-validation [control]="fc.address"></input-validation>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

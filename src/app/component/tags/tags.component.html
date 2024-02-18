@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center" style="max-width: 100vw; margin-top:-20px">
   <div *ngIf="tags">
-  <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}" class="text-decoration-none">
-  {{tag.name}} ({{tag.count}})</a>
-</div>
+    <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}">
+      {{tag.name}} ({{tag.count}})</a>
+  </div>
 </div>

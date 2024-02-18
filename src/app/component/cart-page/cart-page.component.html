@@ -6,32 +6,35 @@
 <div class="container" *ngIf="cart && cart.items.length">
   <div class="row mt-3">
     <div class="col-md-9">
-      <div class="card">
-        <div class="card-body" style="overflow-y: scroll;">
-          <div class="row m-2" *ngFor="let cartItem of cart.items">
-            <div class="col-sm-2">
-              <div>
-                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" class="rounded-5" style="width: 150px;">
-              </div>
-            </div>
-            <div class="col-sm-10 d-flex justify-content-lg-around align-items-start mt-5">
-              <div>
-                <a routerLink="/food/{{cartItem.food.id}}" class="fs-5 fw-semibold">{{cartItem.food.name}}</a>
-              </div>
-              <div class="form-group">
-                <input type="number" min="1" max="20" #quantitySelect [value]="cartItem.quantity"
-                  (change)="changeQuantity(cartItem, quantitySelect.value)">
-              </div>
-              <div>
-                {{cartItem.price | currency}}
-              </div>
-              <div>
-                <button class="btn btn-warning rounded-5" (click)="removeFromCart(cartItem)">
-                  Remove
-                </button>
-              </div>
-            </div>
-          </div>
+      <div class="card" style="height: 60% !important;">
+        <div class="card-body" style="overflow-y: scroll; align-items:center;">
+          <table class="table table-borderless">
+            <tbody>
+              <tr *ngFor="let cartItem of cart.items">
+                <td class="align-middle">
+                  <div>
+                    <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" class="rounded-5"
+                      style="width: 120px;">
+                  </div>
+                </td>
+                <td class="align-middle">
+                  <div>
+                    <a routerLink="/food/{{cartItem.food.id}}" class="fs-6 fw-semibold text-decoration-none">{{cartItem.food.name}}</a>
+                  </div>
+                </td>
+                <td class="align-middle">
+                  <input type="number" min="1" max="20" #quantitySelect [value]="cartItem.quantity"
+                    (change)="changeQuantity(cartItem, quantitySelect.value)">
+                </td>
+                <td class="align-middle">
+                  {{cartItem.price | currency}}
+                </td>
+                <td class="align-middle">
+                  <button class="btn btn-warning rounded-5" (click)="removeFromCart(cartItem)">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -45,8 +48,7 @@
             </div>
           </div>
           <button routerLink="/checkout" class="btn btn-success rounded-5 w-100 m-1 text-center"
-            style="font-size: 15px;">Proceed to
-            Checkout</button>
+            style="font-size: 15px;">Proceed to Checkout</button>
         </div>
       </div>
     </div>

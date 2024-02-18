@@ -25,3 +25,13 @@ export class Cart {
   totalPrice: number = 0;
   totalCount: number = 0;
 }
+
+export class User {
+  id!: string;
+  email!: string;
+  name!: string;
+  address!: string;
+  token!: string;
+  isAdmin!: boolean;
+}
+

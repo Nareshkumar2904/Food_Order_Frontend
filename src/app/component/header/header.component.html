@@ -2,16 +2,16 @@
   <nav id="navbar-example" class="navbar">
     <a class="navbar-brand fw-semibold text-black" href="#">FOOD MENU !!</a>
     <ul class="nav nav-pills fw-semibold">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuth">
         <a class="nav-link text-black" routerLink="/login">LogIn</a>
       </li>
-      <li class="nav-item dropdown" data-bs-target="#navbar-example">
+      <li class="nav-item dropdown" data-bs-target="#navbar-example" *ngIf="isAuth">
         <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" routerLink="/dashboard"
-          aria-expanded="false">name</a>
+          aria-expanded="false">{{user.name}}</a>
         <ul class="dropdown-menu text-center fw-semibold">
           <li><a class="dropdown-item p-1 rounded" routerLink="profile">Profile</a></li>
           <li><a class="dropdown-item p-1 rounded" routerLink="/orders">Orders</a></li>
-          <li><a class="dropdown-item p-1 rounded">Logout</a></li>
+          <li><a class="dropdown-item p-1 rounded" (click)="logout()">Logout</a></li>
         </ul>
       </li>
       <li class="nav-item">

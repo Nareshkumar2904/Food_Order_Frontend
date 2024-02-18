@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="card bg-opacity-50 bg-dark">
+      <div class="card-body">
+        <h1 class="text-white text-center fs-4 mt-2">REGISTRATION FORM</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="submit()" class=" m-auto">
+          <div class="input-container">
+            <input type="text" class="form-control mt-4" placeholder="Enter Full Name" formControlName="name">
+          </div>
+          <input-validation [control]="fc.name" [showErrorsWhen]="isSubmitted"></input-validation>
+          <div class="input-container">
+            <input type="email" class="form-control mt-2" placeholder="Email or Username" formControlName="email">
+          </div>
+          <input-validation [control]="fc.email" [showErrorsWhen]="isSubmitted"></input-validation>
+          <div class="input-container">
+            <input type="password" class="form-control mt-2" placeholder="Password" formControlName="password">
+          </div>
+          <input-validation [control]="fc.password" [showErrorsWhen]="isSubmitted"></input-validation>
+          <div class="input-container">
+            <input type="password" class="form-control mt-2" placeholder="Confirm Password"
+              formControlName="confirmPassword">
+          </div>
+          <input-validation [control]="fc.confirmPassword" [showErrorsWhen]="isSubmitted"></input-validation>
+          <div class="input-container">
+            <input type="text" class="form-control mt-2" placeholder="Enter Full Address" formControlName="address">
+          </div>
+          <input-validation [control]="fc.address" [showErrorsWhen]="isSubmitted"></input-validation>
+          <div class="text-center mt-3">
+            <button class="btn btn-primary w-50 rounded-5 fw-semibold">Register</button>
+          </div>
+          <div class="mt-3 text-center">
+            <a routerLink="/login" class="text-white fw-semibold" [queryParams]="{returnUrl : returnUrl}">Already have
+              account ?
+              Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
